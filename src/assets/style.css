@@ -1,0 +1,136 @@
+html {
+	box-sizing: border-box;
+}
+
+*. *:before, *:after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	background: #000;
+	display: flex;
+}
+
+button {
+	outline: 0;
+}
+
+.start-screen {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.start-screen .element {
+	box-sizing: border-box;
+	margin: 2.5vmin;
+	width: calc(50% - 5vmin);
+	padding: 0 6.5vmin;
+}
+.start-screen .element .bar {
+	margin: auto 0;
+	height: 60%;
+}
+
+.element {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.element .circle {
+	position: absolute;
+	top: 50%; left: 50%;
+	width: 80%;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+}
+.element .circle::before {
+	content: '';
+	display: block;
+	padding-top: 100%;
+}
+
+
+.element-screen:not(.is-visible) {
+	display: none;
+}
+.element-screen {
+	margin: auto;
+	width: 80vmin;
+	height: 80vmin;
+	padding: 0 14%;
+}
+
+.element .bar {
+	display: block;
+	border: 0;
+	padding: 0;
+	width: 14%;
+	position: relative;
+	transition: 200ms;
+
+	margin-top: -8%;
+	height: calc(100% + 16%);
+	z-index: 2;
+}
+
+.element > .is-no-longerplaying {
+	animation: 750ms whip-it-out linear;
+}
+
+.element > .is-playing {
+	animation: 1500ms whip-it-in infinite linear;
+}
+
+@keyframes whip-it-in {
+	25% { transform: scale(.95); }
+	75% { transform: scale(1.05); }
+}
+
+@keyframes whip-it-out {
+	100% { transform: scale(1); }
+}
+
+/* COLORS BELOW */
+
+body.fire,
+.element[data-element="fire"] { background: #d153a0; }
+.element[data-element="fire"] .circle { background: #cc0160; }
+.element[data-element="fire"] .bar:nth-child(1) { background: #f8215e; }
+.element[data-element="fire"] .bar:nth-child(2) { background: #f93c71; }
+.element[data-element="fire"] .bar:nth-child(3) { background: #f95f8a; }
+.element[data-element="fire"] .bar:nth-child(4) { background: #fa90ae; }
+
+
+body.water,
+.element[data-element="water"] { background: #02e2d0; }
+.element[data-element="water"] .circle { background: #01293c; }
+.element[data-element="water"] .bar:nth-child(1) { background: #034453; }
+.element[data-element="water"] .bar:nth-child(2) { background: #036d84; }
+.element[data-element="water"] .bar:nth-child(3) { background: #0291af; }
+.element[data-element="water"] .bar:nth-child(4) { background: #02bbe2; }
+
+body.earth,
+.element[data-element="earth"] { background: #ec240f; }
+.element[data-element="earth"] .circle { background: #ffc000; }
+.element[data-element="earth"] .bar:nth-child(1) { background: #a67c52; }
+.element[data-element="earth"] .bar:nth-child(2) { background: #8c6239; }
+.element[data-element="earth"] .bar:nth-child(3) { background: #754c24; }
+.element[data-element="earth"] .bar:nth-child(4) { background: #603913; }
+
+body.air,
+.element[data-element="air"] { background: #ffffff; }
+.element[data-element="air"] .circle { background: #b9b7b8; }
+.element[data-element="air"] .bar:nth-child(1) { background: #686566; }
+.element[data-element="air"] .bar:nth-child(2) { background: #8c8c8c; }
+.element[data-element="air"] .bar:nth-child(3) { background: #a3a2a3; }
+.element[data-element="air"] .bar:nth-child(4) { background: #d5d4d5; }
