@@ -42,7 +42,7 @@ button {
 .element {
 	display: flex;
 	position: relative;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-around;
 }
 
@@ -74,12 +74,12 @@ button {
 	display: block;
 	border: 0;
 	padding: 0;
-	width: 14%;
+	height: 14%;
 	position: relative;
 	transition: 200ms;
 
-	margin-top: -8%;
-	height: calc(100% + 16%);
+	margin-left: -8%;
+	width: calc(100% + 16%);
 	z-index: 2;
 }
 
