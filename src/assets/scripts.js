@@ -21,7 +21,13 @@ $(function() {
 
 			audio.currentTime = 0;
 			audio.volume = .05; // debug
-			
+
+			try {
+				audio.play();
+			} catch (e) {
+				//
+			}
+
 			setTimeout(function() {
 				audio.play();
 			}, 25);
